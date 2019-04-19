@@ -1,5 +1,6 @@
 module.exports = {
     "env": {
+        "node": true,
         "browser": true,
         "commonjs": true,
         "es6": true
@@ -18,7 +19,7 @@ module.exports = {
             4
         ],
         "linebreak-style": [
-            "warn",
+            "error",
             "unix"
         ],
         "quotes": [
@@ -28,6 +29,15 @@ module.exports = {
         "semi": [
             "error",
             "always"
+        ],
+        // 是否禁止使用 console
+        "no-console": "off",
+        "no-restricted-syntax": [
+            "error",
+            {
+                "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+                "message": "Unexpected property on console object was called"
+            }
         ]
     }
 };
